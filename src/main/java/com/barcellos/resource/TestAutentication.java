@@ -1,13 +1,20 @@
-package com.barcellos;
+package com.barcellos.resource;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-@Path("/basic")
+import org.eclipse.microprofile.openapi.annotations.tags.Tag;
+
+import io.quarkus.security.Authenticated;
+
+@Path("/autentication/test")
 @Produces(MediaType.TEXT_PLAIN)
-public class BasicAuth {
+@Tag(name = "Autentication")
+// @SecurityRequirement(name = "oauth2", scopes = { "admin" })
+@Authenticated
+public class TestAutentication {
 
     @GET
     @Path("/admin")
